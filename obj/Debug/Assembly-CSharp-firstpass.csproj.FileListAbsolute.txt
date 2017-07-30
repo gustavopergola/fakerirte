@@ -29,6 +29,5 @@ G:\1Unity Projects\New Unity Project\Temp\bin\Debug\UnityEngine.Analytics.xml
 G:\1Unity Projects\New Unity Project\Temp\bin\Debug\UnityEngine.HoloLens.xml
 G:\1Unity Projects\New Unity Project\Temp\bin\Debug\UnityEngine.VR.xml
 G:\1Unity Projects\New Unity Project\Temp\bin\Debug\Photon3Unity3D.xml
-G:\1Unity Projects\New Unity Project\obj\Debug\Assembly-CSharp-firstpass.csprojResolveAssemblyReference.cache
 G:\1Unity Projects\New Unity Project\obj\Debug\Assembly-CSharp-firstpass.dll
 G:\1Unity Projects\New Unity Project\obj\Debug\Assembly-CSharp-firstpass.pdb

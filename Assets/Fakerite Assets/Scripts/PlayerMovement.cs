@@ -7,7 +7,8 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
 	private Rigidbody rigidbody;
-	public float speed = 3;
+	public float speed = 150;
+	public int playerNumber = 1;
 
 	private float sqrt2;
 	private bool isMovingVertical, isMovingHorizontal;
@@ -20,30 +21,23 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 newVelocity = new Vector3 (0, 0, 0);
-		float horizontal = Input.GetAxis ("Horizontal");
+
+		float horizontal = Input.GetAxis ("Horizontal" + playerNumber);
+		float vertical = Input.GetAxis ("Vertical" + playerNumber);
+
 		isMovingVertical = false;
 		isMovingHorizontal = false;
 
 		// 0.01 for a "dead" zone
-		if (horizontal > 0.01){
-			// move right
-			newVelocity.x = speed * Time.deltaTime;
-			isMovingHorizontal = true;
-		}else if (horizontal < -0.01) {
-			// move left
-			newVelocity.x = -speed * Time.deltaTime;
+		if (horizontal > 0.01 || horizontal < -0.01f ){
+			// move right / left
+			newVelocity.x = speed * Time.deltaTime * horizontal;
 			isMovingHorizontal = true;
 		}
-
-		float vertical = Input.GetAxis ("Vertical");
 		// 0.01 for "dead zone
-		if (vertical > 0.01){
+		if (vertical > 0.01 || vertical < -0.01){
 			// move up
-			newVelocity.z = speed * Time.deltaTime;
-			isMovingVertical = true;
-		}else if (vertical < -0.01) {
-			// move down
-			newVelocity.z = -speed * Time.deltaTime;
+			newVelocity.z = speed * Time.deltaTime * vertical;
 			isMovingVertical = true;
 		}
 
@@ -54,7 +48,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		rigidbody.velocity = newVelocity;
 
-		Debug.Log ("Magnitude = " + rigidbody.velocity.magnitude);
+		//Debug.Log ("Magnitude = " + rigidbody.velocity.magnitude);
 	}
 
 	void FixedUpdate(){
