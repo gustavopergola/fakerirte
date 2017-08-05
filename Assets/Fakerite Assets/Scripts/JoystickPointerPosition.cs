@@ -27,6 +27,9 @@ public class JoystickPointerPosition : MonoBehaviour {
 		float horizontalAxis = Input.GetAxis ("RightHorizontal" + playerNumber);
 		float verticalAxis = Input.GetAxis ("RightVertical" + playerNumber);
 
+		Debug.Log ("Vertical Axis: " + verticalAxis);
+		Debug.Log ("Horizontal Axis: " + horizontalAxis);
+
 		float soma = Mathf.Abs (horizontalAxis) + Mathf.Abs (verticalAxis);
 
 		if (soma < 1){

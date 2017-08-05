@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/cena.unity
+- path: Assets/Fakerite Assets/Scenes/cena.unity
   isLoaded: 1
   isActive: 1
