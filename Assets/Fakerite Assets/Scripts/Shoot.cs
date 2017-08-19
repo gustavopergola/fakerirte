@@ -5,6 +5,7 @@ using UnityEngine;
 public class Shoot : MonoBehaviour {
 
 	public ParticleSystem shootParticle;
+	public ParticleSystem muzzleFlash;
 	private float shootingDelay = 200;
 	private float actualShootingTime;
 	public float shootingSpeed = 10f;
@@ -27,6 +28,7 @@ public class Shoot : MonoBehaviour {
 		if (Input.GetAxis("Triggers") < 0){
 			if (shootingDelay <= actualShootingTime){
 				shootParticle.Emit (1);	
+				muzzleFlash.Emit (1);
 				actualShootingTime = 0;
 				shootAudioSource.PlayOneShot (shootAudioClip);
 			}else {
