@@ -9,6 +9,9 @@ public class Shoot : MonoBehaviour {
 	private float actualShootingTime;
 	public float shootingSpeed = 10f;
 
+	public AudioSource shootAudioSource;
+	public AudioClip shootAudioClip;
+
 	// Use this for initialization
 	void Start () {
 		actualShootingTime = shootingSpeed;
@@ -25,6 +28,7 @@ public class Shoot : MonoBehaviour {
 			if (shootingDelay <= actualShootingTime){
 				shootParticle.Emit (1);	
 				actualShootingTime = 0;
+				shootAudioSource.PlayOneShot (shootAudioClip);
 			}else {
 				actualShootingTime += shootingSpeed;
 			}
