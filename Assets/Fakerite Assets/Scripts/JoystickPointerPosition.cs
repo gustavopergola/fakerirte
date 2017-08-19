@@ -11,10 +11,12 @@ public class JoystickPointerPosition : MonoBehaviour {
 	public float pointerDistance = 1.2f;
 
 	private Vector3 initialScale;
+	private Vector3 pointerLastDir;
 
 	// Use this for initialization
 	void Start () {
 		initialScale = pointerTransform.localScale;
+		pointerDir = new Vector3(0, 0.7f, 2.3f); // that's an adapted foward vector
 	}
 	
 	// Update is called once per frame
@@ -27,8 +29,8 @@ public class JoystickPointerPosition : MonoBehaviour {
 		float horizontalAxis = Input.GetAxis ("RightHorizontal" + playerNumber);
 		float verticalAxis = Input.GetAxis ("RightVertical" + playerNumber);
 
-		Debug.Log ("Vertical Axis: " + verticalAxis);
-		Debug.Log ("Horizontal Axis: " + horizontalAxis);
+		/** Debug.Log ("Vertical Axis: " + verticalAxis);
+		Debug.Log ("Horizontal Axis: " + horizontalAxis); **/
 
 		float soma = Mathf.Abs (horizontalAxis) + Mathf.Abs (verticalAxis);
 
@@ -37,19 +39,19 @@ public class JoystickPointerPosition : MonoBehaviour {
 			verticalAxis *= 100;
 		}
 
-		if ((verticalAxis == 0 && horizontalAxis == 0)){
-			pointerTransform.localScale = new Vector3 (0, 0, 0);
-		}else {
+		//*dead* zone
+		if (!(verticalAxis <= 0.5 && verticalAxis >= -0.5 && horizontalAxis <= 0.5 && horizontalAxis >= -0.5)){
 			pointerTransform.localScale = initialScale;
+			pointerDir = new Vector3 (horizontalAxis, playerTransform.position.y, verticalAxis);
+
+			pointerDir.Normalize ();
+			pointerDir.y = playerTransform.position.y;
+			pointerDir.Scale(new Vector3 (pointerDistance, 1, pointerDistance));
+
+		} else {
+			pointerDir = new Vector3(0, 0.7f, 2.3f);
+			pointerTransform.localScale = Vector3.zero;
 		}
-
-		pointerDir = new Vector3 (horizontalAxis, playerTransform.position.y, verticalAxis);
-
-		pointerDir.Normalize ();
-		pointerDir.y = playerTransform.position.y;
-		pointerDir.Scale(new Vector3 (pointerDistance, 1, pointerDistance));
-
-		//Debug.Log ("pointerDir: " + pointerDir);
 
 		pointerTransform.localPosition = pointerDir;
 
