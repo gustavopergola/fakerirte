@@ -25,7 +25,7 @@ public class Shoot : MonoBehaviour {
 	}
 		
 	void FixedUpdate () {
-		if (Input.GetAxis("Triggers") < 0){
+		if (Input.GetAxis("Triggers") < 0 || Input.GetMouseButton(0)){
 			if (shootingDelay <= actualShootingTime){
 				shootParticle.Emit (1);	
 				muzzleFlash.Emit (1);

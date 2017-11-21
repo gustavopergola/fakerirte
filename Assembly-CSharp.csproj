@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\CollisionListener.cs" />
      <Compile Include="Assets\Fakerite Assets\Scripts\JoystickPointerPosition.cs" />
-     <Compile Include="Assets\Fakerite Assets\Scripts\KeyboardPointerPosition.cs" />
      <Compile Include="Assets\Fakerite Assets\Scripts\PlayerMovement.cs" />
      <Compile Include="Assets\Fakerite Assets\Scripts\Shoot.cs" />
      <Compile Include="Assets\Fakerite Assets\Scripts\SoftFlickering.cs" />
@@ -207,6 +206,7 @@
      <Compile Include="Assets\PhotonChatApi\ChatState.cs" />
      <Compile Include="Assets\PhotonChatApi\ChatUserStatus.cs" />
      <Compile Include="Assets\PhotonChatApi\IChatClientListener.cs" />
+     <Compile Include="Assets\ShieldController.cs" />
      <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
      <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
      <Compile Include="Assets\UnityChan\Scripts\IdleChanger.cs" />
