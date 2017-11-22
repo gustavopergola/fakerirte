@@ -41,7 +41,7 @@ public class JoystickPointerPosition : MonoBehaviour {
 			pointerDir.z = pointerDir.z / 2*Mathf.Abs(pointerDir.z);
 			horizontalAxis = pointerDir.x;
 			verticalAxis = pointerDir.z;
-			Debug.Log (pointerDir);
+			//Debug.Log (pointerDir);
 
 		}else {
 			/** Rigth = 0.5 **/

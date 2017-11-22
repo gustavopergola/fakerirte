@@ -49,6 +49,7 @@
      <Compile Include="Assets\CollisionListener.cs" />
      <Compile Include="Assets\Fakerite Assets\Scripts\JoystickPointerPosition.cs" />
      <Compile Include="Assets\Fakerite Assets\Scripts\PlayerMovement.cs" />
+     <Compile Include="Assets\Fakerite Assets\Scripts\Shield.cs" />
      <Compile Include="Assets\Fakerite Assets\Scripts\Shoot.cs" />
      <Compile Include="Assets\Fakerite Assets\Scripts\SoftFlickering.cs" />
      <Compile Include="Assets\Fakerite Assets\Scripts\mouseRay.cs" />

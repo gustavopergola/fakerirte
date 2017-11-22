@@ -9,9 +9,11 @@ public class PlayerMovement : MonoBehaviour {
 	private Rigidbody rigidbody;
 	public float speed = 150;
 	public int playerNumber = 1;
+	public bool keyboard = false;
 
 	private float sqrt2;
 	private bool isMovingVertical, isMovingHorizontal;
+
 	// Use this for initialization
 	void Start () {
 		sqrt2 = Mathf.Sqrt (2f);
@@ -21,9 +23,17 @@ public class PlayerMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 newVelocity = new Vector3 (0, 0, 0);
+		float horizontal = 0.0f;
+		float vertical = 0.0f;
 
-		float horizontal = Input.GetAxis ("Horizontal" + playerNumber);
-		float vertical = Input.GetAxis ("Vertical" + playerNumber);
+		if (!keyboard){
+			horizontal = Input.GetAxis ("Horizontal" + playerNumber);
+			vertical = Input.GetAxis ("Vertical" + playerNumber);		
+		}else {
+			horizontal = Input.GetAxis ("Horizontal");
+			vertical = Input.GetAxis ("Vertical");
+		}
+
 
 		isMovingVertical = false;
 		isMovingHorizontal = false;
